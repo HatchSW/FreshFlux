@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "20650D79B9FEBF7D91F064CC9F897809B4483C57",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B99D5265D40801D5BC46A8C7ECDCFE8BBCCB2413" : 0,
+    "431E7F1AAE75915A72590B759255E7537F3A966C" : 0,
+    "20650D79B9FEBF7D91F064CC9F897809B4483C57" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "69459886-EE78-4C1D-B00F-6F2D348C1BB4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B99D5265D40801D5BC46A8C7ECDCFE8BBCCB2413" : "..",
+    "431E7F1AAE75915A72590B759255E7537F3A966C" : "",
+    "20650D79B9FEBF7D91F064CC9F897809B4483C57" : "Flux\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "flux",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "flux.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/HatchSW\/Flux.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "20650D79B9FEBF7D91F064CC9F897809B4483C57"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/HatchSW\/FreshFlux.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "431E7F1AAE75915A72590B759255E7537F3A966C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/HatchSW\/FreshFlux.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B99D5265D40801D5BC46A8C7ECDCFE8BBCCB2413"
+    }
+  ]
+}
