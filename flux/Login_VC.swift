@@ -9,7 +9,7 @@
 import UIKit
 
 class Login_VC: UIViewController {
-
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -24,7 +24,7 @@ class Login_VC: UIViewController {
         super.viewDidLoad()
         
         tryAgainLabel.hidden = true
-
+        
         //Mask the profile image into a circle with a white boarder
         profileImage.layer.cornerRadius = 24//(profileImage.frame.size.width / 2)
         profileImage.clipsToBounds = true
@@ -47,7 +47,7 @@ class Login_VC: UIViewController {
         //show the keybaord on the username
         usernameTextField.becomeFirstResponder()
     }
-
+    
     // MARK: - IBActions
     @IBAction func loginPressed(sender: UIButton) {
         login(usernameTextField.text!, password: passwordTextField.text!)
@@ -84,7 +84,7 @@ class Login_VC: UIViewController {
             tryAgainLabel.hidden = false
         }
     }
-
+    
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -100,6 +100,8 @@ class Login_VC: UIViewController {
             dashboardVC.teacher = authenticatedUser as? Teacher
         }
     }
-
-
+    
+    
+    
+    
 }

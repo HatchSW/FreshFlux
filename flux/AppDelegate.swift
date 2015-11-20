@@ -11,32 +11,35 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
         return true
     }
-
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(application: UIApplication) {
         self.cdh.saveContext()
     }
-
+    
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(application: UIApplication) {
         //demoData() //for testing out core data
+        demoStudents()
     }
-
+    
     func applicationWillTerminate(application: UIApplication) {
         self.cdh.saveContext()
     }
@@ -56,6 +59,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // #pragma mark - Demo
     
     func demoStudents(){
+        
+        //we need to get the app delegate in order to get the core data ManagedObjectContext
+        //let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        //make a new student
+        let student1: Student = NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: appDelegate.cdh.backgroundContext!) as! Student
+        
+        //populate the object with real data
+        student1.firstName = "Matteo"
+        student1.lastName = "Slaviero"
+        student1.studentID = "0990353"
+        student1.password = "666"
+        
+        //see if it worked
+        print("Inserted New Student named \(student1) ")
+        
+        //Important: save
+        appDelegate.cdh.saveContext(appDelegate.cdh.backgroundContext!)
+        
+        let student2: Student = NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: appDelegate.cdh.backgroundContext!) as! Student
+        
+        //populate the object with real data
+        student2.firstName = "Dawit"
+        student2.lastName = "Don't Know"
+        student2.studentID = "0987308"
+        student2.password = "0919"
+        
+        //see if it worked
+        print("Inserted New Student named \(student2) ")
+        
+        //Important: save
+        appDelegate.cdh.saveContext(appDelegate.cdh.backgroundContext!)
+        
+        
+        let student3: Student = NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: appDelegate.cdh.backgroundContext!) as! Student
+        
+        //populate the object with real data
+        student3.firstName = "Zane"
+        student3.lastName = "Godfrey"
+        student3.studentID = "099999"
+        student3.password = "099999"
+        
+        //see if it worked
+        print("Inserted New Student named \(student3) ")
+        
+        //Important: save
+        appDelegate.cdh.saveContext(appDelegate.cdh.backgroundContext!)
+        
+        
+        let student4: Student = NSEntityDescription.insertNewObjectForEntityForName("Student", inManagedObjectContext: appDelegate.cdh.backgroundContext!) as! Student
+        
+        //populate the object with real data
+        student4.firstName = "Scott"
+        student4.lastName = "Don't know"
+        student4.studentID = "0970936"
+        student4.password = "1"
+        
+        //see if it worked
+        print("Inserted New Student named \(student3) ")
+        
+        //Important: save
+        appDelegate.cdh.saveContext(appDelegate.cdh.backgroundContext!)
+        
         
     }
     
@@ -140,4 +206,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
-
