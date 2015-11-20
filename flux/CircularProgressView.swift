@@ -19,9 +19,8 @@ class CircularProgressView: UIView {
     var strokeColor = UIColor.orangeColor()
 
     
-    @IBInspectable var progress: Double = 0.6{
-        didSet {updateLayerProperties() }
-    }
+    var progress: Double = 0.6
+    
     
     var lineWidth: CGFloat = 10.0 {
         didSet {updateLayerProperties() }
@@ -96,6 +95,9 @@ class CircularProgressView: UIView {
                 }else{
                    strokeColor = UIColor.greenColor()
                 }
+            }else{
+                progress = 1.0
+                strokeColor = UIColor.blueColor()
             }
                 
             

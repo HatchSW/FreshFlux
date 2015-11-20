@@ -212,7 +212,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Student Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKx-uM-hQf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKx-uM-hQf">
                                 <rect key="frame" x="134" y="54" width="500" height="21"/>
                                 <animations/>
                                 <constraints>
@@ -238,18 +238,18 @@
                                     <action selector="CheckInButtonPressed:" destination="4na-tA-vek" eventType="touchUpInside" id="MaD-3n-uGE"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lTf-gY-mb6" customClass="CircularProgressView" customModule="flux">
-                                <rect key="frame" x="259" y="302" width="250" height="250"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="0.0" colorSpace="calibratedRGB"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time Until Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmO-uH-csO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Until Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmO-uH-csO">
                                 <rect key="frame" x="234" y="590" width="300" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTf-gY-mb6" customClass="CircularProgressView" customModule="flux">
+                                <rect key="frame" x="259" y="296" width="250" height="250"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -277,6 +277,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="gKx-uM-hQf" secondAttribute="trailing" constant="114" id="Rvz-HW-uUh"/>
                             <constraint firstItem="gKx-uM-hQf" firstAttribute="top" secondItem="K0L-Wr-Roi" secondAttribute="bottom" constant="10" id="SBg-lr-veD"/>
                             <constraint firstItem="gKx-uM-hQf" firstAttribute="leading" secondItem="aRO-nB-u6y" secondAttribute="leadingMargin" constant="-14" id="T2f-jG-3UV"/>
+                            <constraint firstItem="fmO-uH-csO" firstAttribute="top" secondItem="lTf-gY-mb6" secondAttribute="bottom" constant="44" id="TJl-yE-hJO"/>
                             <constraint firstItem="W9g-Eq-FdL" firstAttribute="top" secondItem="aHB-0j-dT3" secondAttribute="bottom" constant="8" id="TMv-Wl-nJn"/>
                             <constraint firstItem="sft-Rp-8sr" firstAttribute="top" secondItem="W9g-Eq-FdL" secondAttribute="bottom" id="Txs-bb-YTK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W9g-Eq-FdL" secondAttribute="trailing" constant="-20" id="U0v-cz-FoQ"/>
@@ -327,6 +328,7 @@
                                 <exclude reference="IKG-sg-lni"/>
                                 <exclude reference="J92-EG-WWx"/>
                                 <exclude reference="RPL-xr-ZVy"/>
+                                <exclude reference="TJl-yE-hJO"/>
                                 <exclude reference="XlN-QV-d39"/>
                                 <exclude reference="XsV-r0-Bcp"/>
                                 <exclude reference="aMx-qe-W13"/>
