@@ -7,8 +7,7 @@ Created by the Shorewood Hatch Club, which is advised by Mr. Bruno.
 In the command line, navigate to the desired folder and clone the git repository into it.
 ```
 $ cd <desired folder>
-$ git clone https://github.com/HatchSW/Flux.git
-$ cd sasapp
+$ git clone https://github.com/HatchSW/FreshFlux.git
 ```
 
 ## Running Flux
