@@ -19,8 +19,9 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
     @IBOutlet weak var coursePicker: UIPickerView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tempConfirmChoiceLabel: UILabel!
-    @IBOutlet weak var timeUntilLabel: UILabel!
     @IBOutlet weak var checkInButton: UIButton!
+    @IBOutlet weak var timeUntilLabel: UITextField!
+    @IBOutlet weak var remainingMinutesLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         
         determineTimeTillSas()
         
-        checkInButton.layer.cornerRadius = 10; // this value vary as per your desire
+        checkInButton.layer.cornerRadius = 15; // this value vary as per your desire
         checkInButton.clipsToBounds = true;
         
         //display student information
@@ -70,21 +71,23 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
 //        let second = components.second;
         
         //change text color depending on how long you have until SAS starts
-        if minute <= 40 && hour == 9{
+        if minute <= 40 {
             let untilMinute = 40 - minute
             
             if untilMinute <= 5 {
                 timeUntilLabel.textColor = UIColor.redColor()
+                remainingMinutesLabel.textColor = UIColor.redColor()
             }else{
                 timeUntilLabel.textColor = UIColor.greenColor()
+                
             }
             
             timeUntilLabel.text = String(untilMinute) + " minutes until start"
-
+            remainingMinutesLabel.text = String(untilMinute)
         }else{
             timeUntilLabel.textColor = UIColor.redColor()
             //If SAS has already started
-            timeUntilLabel.text = "In Progress"
+            timeUntilLabel.text = "SAS has already started"
         }
  
     }
