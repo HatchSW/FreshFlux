@@ -93,13 +93,18 @@ class CircularProgressView: UIView {
                 progress = Double(untilMinute)/40
                 
                 if untilMinute <= 5 {
-                    strokeColor = UIColor.redColor()
+                    //red
+                    strokeColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
+
                 }else{
-                   strokeColor = UIColor.greenColor()
+                    //green
+                    strokeColor =  UIColor(red: (100/255.0), green: (221/255.0), blue: (23/255.0), alpha: 1.0)
+
                 }
             }else{
                 progress = 1.0
-                strokeColor = UIColor.lightGrayColor()
+                //red
+                strokeColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
             }
                 
             

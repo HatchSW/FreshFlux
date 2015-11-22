@@ -20,8 +20,8 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tempConfirmChoiceLabel: UILabel!
     @IBOutlet weak var checkInButton: UIButton!
-    @IBOutlet weak var timeUntilLabel: UITextField!
     @IBOutlet weak var remainingMinutesLabel: UITextField!
+    @IBOutlet weak var minutesUntilStartDescriptionLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,19 +75,21 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
             let untilMinute = 40 - minute
             
             if untilMinute <= 5 {
-                timeUntilLabel.textColor = UIColor.redColor()
-                remainingMinutesLabel.textColor = UIColor.redColor()
+                //red
+                remainingMinutesLabel.textColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
+
             }else{
-                timeUntilLabel.textColor = UIColor.greenColor()
-                
+                //green
+                remainingMinutesLabel.textColor =  UIColor(red: (100/255.0), green: (221/255.0), blue: (23/255.0), alpha: 1.0)
             }
             
-            timeUntilLabel.text = String(untilMinute) + " minutes until start"
             remainingMinutesLabel.text = String(untilMinute)
         }else{
-            timeUntilLabel.textColor = UIColor.redColor()
-            //If SAS has already started
-            timeUntilLabel.text = "SAS has already started"
+            //red
+            remainingMinutesLabel.textColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
+
+            remainingMinutesLabel.text = "SAS has already started"
+            minutesUntilStartDescriptionLabel.hidden = true
         }
  
     }
