@@ -250,13 +250,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTV-Op-Pa1">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTV-Op-Pa1">
                                         <rect key="frame" x="77" y="8" width="97" height="30"/>
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.53092684244570143" blue="0.41494078710772009" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>

@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import Foundation
 
 class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
@@ -31,7 +32,6 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         
          self.view.backgroundColor = UIColor(patternImage: UIImage(named: "studentDashboardBackground.jpeg")!)
         
-        determineTimeTillSas()
         
         checkInButton.layer.cornerRadius = 15; // this value vary as per your desire
         checkInButton.clipsToBounds = true;
@@ -39,7 +39,11 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         //display student information
 //        nameLabel.text = "\(student!.firstName) \(student!.lastName)"
         
+        determineTimeTillSas()
         
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("determineTimeTillSas"), userInfo: nil, repeats: true)
+        
+       
     }
     
     //Mark: IBActions
@@ -57,6 +61,15 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
+    func refreshEveryMinute(){
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("sayHello"), userInfo: nil, repeats: true)
+        
+        func update()
+        {
+            determineTimeTillSas()
+        }
+        
+    }
     
     
     

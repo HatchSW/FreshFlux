@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import Foundation
 
 @IBDesignable
 
@@ -67,6 +68,9 @@ class CircularProgressView: UIView {
         
         ringLayer.frame = layer.bounds
         updateLayerProperties()
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("updateLayerProperties"), userInfo: nil, repeats: true)
+        
+       
 
     }
     
@@ -100,11 +104,12 @@ class CircularProgressView: UIView {
                     //green
                     strokeColor =  UIColor(red: (100/255.0), green: (221/255.0), blue: (23/255.0), alpha: 1.0)
 
+
                 }
             }else{
                 progress = 1.0
-                //red
-                strokeColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
+                //blue grey
+                strokeColor = UIColor(red: (96/255.0), green: (125/255.0), blue: (141/255.0), alpha: 1.0)
             }
                 
             
@@ -117,6 +122,17 @@ class CircularProgressView: UIView {
             ringLayer.strokeColor = strokeColor.CGColor
         }
     }
+    
+    func refreshEveryMinute(){
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("sayHello"), userInfo: nil, repeats: true)
+        
+        func update()
+        {
+            updateLayerProperties()
+        }
+        
+    }
+
     
     
     
