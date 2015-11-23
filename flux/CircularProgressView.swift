@@ -68,7 +68,7 @@ class CircularProgressView: UIView {
         
         ringLayer.frame = layer.bounds
         updateLayerProperties()
-        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("updateLayerProperties"), userInfo: nil, repeats: true)
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateLayerProperties"), userInfo: nil, repeats: true)
         
        
 

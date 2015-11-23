@@ -41,7 +41,7 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         
         determineTimeTillSas()
         
-        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("determineTimeTillSas"), userInfo: nil, repeats: true)
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("determineTimeTillSas"), userInfo: nil, repeats: true)
         
        
     }
@@ -101,7 +101,7 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
             //red
             remainingMinutesLabel.textColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
 
-            remainingMinutesLabel.text = "SAS has already started"
+            remainingMinutesLabel.text = ""
             minutesUntilStartDescriptionLabel.hidden = true
         }
  
