@@ -8,8 +8,10 @@
 
 import UIKit
 import QuartzCore
+import Foundation
 
 @IBDesignable
+
 
 class CircularProgressView: UIView {
     
@@ -19,17 +21,16 @@ class CircularProgressView: UIView {
     var strokeColor = UIColor.orangeColor()
 
     
-    @IBInspectable var progress: Double = 0.6{
-        didSet {updateLayerProperties() }
-    }
+    var progress: Double = 0.6
     
-    var lineWidth: CGFloat = 10.0 {
-        didSet {updateLayerProperties() }
-    }
+    
+    var lineWidth: CGFloat = 10.0
+       
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        determineUntilSAS()
+
         
         if !(backgroundRingLayer != nil){
             backgroundRingLayer = CAShapeLayer()
@@ -40,7 +41,7 @@ class CircularProgressView: UIView {
             
             backgroundRingLayer.path = path.CGPath
             backgroundRingLayer.fillColor = nil
-            backgroundRingLayer.lineWidth = 10.0
+            backgroundRingLayer.lineWidth = 15.0
             backgroundRingLayer.strokeColor = UIColor(white:0.5, alpha:0.3).CGColor
         
         }
@@ -56,7 +57,7 @@ class CircularProgressView: UIView {
             
             ringLayer.path = path.CGPath
             ringLayer.fillColor = nil
-            ringLayer.lineWidth = 10.0
+            ringLayer.lineWidth = 15.0
             ringLayer.strokeColor = UIColor.orangeColor().CGColor
             ringLayer.anchorPoint = CGPointMake(0.5, 0.5)
             ringLayer.transform = CATransform3DRotate(ringLayer.transform, CGFloat(-M_PI/2), 0, 0, 1)
@@ -67,6 +68,9 @@ class CircularProgressView: UIView {
         
         ringLayer.frame = layer.bounds
         updateLayerProperties()
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateLayerProperties"), userInfo: nil, repeats: true)
+        
+       
 
     }
     
@@ -84,18 +88,29 @@ class CircularProgressView: UIView {
             let hour = components.hour;
             let minute = components.minute;
             //        let second = components.second;
-            
+            print(String(hour))
+            print(String(minute))
             //change text color depending on how long you have until SAS starts
-            if minute <= 40 && hour == 9{
-                let untilMinute = 40 - minute
-                
-                progress = 15.0/Double(untilMinute)
+            if minute < 40{
+                var untilMinute = 40 - minute
+                untilMinute = 40 - untilMinute
+                progress = Double(untilMinute)/40
                 
                 if untilMinute <= 5 {
-                    strokeColor = UIColor.redColor()
+                    //red
+                    print("until minute is less than 5, strokColor = red")
+                    strokeColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
+
                 }else{
-                   strokeColor = UIColor.greenColor()
+                    //green
+                    strokeColor =  UIColor(red: (100/255.0), green: (221/255.0), blue: (23/255.0), alpha: 1.0)
+
+
                 }
+            }else{
+                progress = 1.0
+                //red
+                strokeColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
             }
                 
             
@@ -109,32 +124,17 @@ class CircularProgressView: UIView {
         }
     }
     
-    func determineUntilSAS() {
-        //SAS starts 9:40 am
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day, .Hour, .Minute, .Second], fromDate: date)
-        let hour = components.hour;
-        let minute = components.minute;
-        //        let second = components.second;
+    func refreshEveryMinute(){
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("sayHello"), userInfo: nil, repeats: true)
         
-        //change text color depending on how long you have until SAS starts
-        if minute <= 40{
-            let untilMinute = 40 - minute
-            
-            progress = 1.0/Double(untilMinute)
-            
-            if untilMinute <= 5 {
-                strokeColor = UIColor.redColor()
-            }else{
-                strokeColor = UIColor.greenColor()
-            }
-            
-        }else{
-            progress = 0.9
+        func update()
+        {
+            updateLayerProperties()
         }
-
+        
     }
+
+    
     
     
 }
