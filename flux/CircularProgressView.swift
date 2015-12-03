@@ -91,13 +91,14 @@ class CircularProgressView: UIView {
             print(String(hour))
             print(String(minute))
             //change text color depending on how long you have until SAS starts
-            if minute <= 40{
+            if minute < 40{
                 var untilMinute = 40 - minute
                 untilMinute = 40 - untilMinute
                 progress = Double(untilMinute)/40
                 
                 if untilMinute <= 5 {
                     //red
+                    print("until minute is less than 5, strokColor = red")
                     strokeColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
 
                 }else{
@@ -108,8 +109,8 @@ class CircularProgressView: UIView {
                 }
             }else{
                 progress = 1.0
-                //blue grey
-                strokeColor = UIColor(red: (96/255.0), green: (125/255.0), blue: (141/255.0), alpha: 1.0)
+                //red
+                strokeColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
             }
                 
             

@@ -17,6 +17,7 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
     
     var student: Student?
     
+    @IBOutlet weak var displayTimeLabel: UILabel!
     @IBOutlet weak var coursePicker: UIPickerView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tempConfirmChoiceLabel: UILabel!
@@ -40,8 +41,9 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
 //        nameLabel.text = "\(student!.firstName) \(student!.lastName)"
         
         determineTimeTillSas()
+        displayTime()
         
-        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("determineTimeTillSas"), userInfo: nil, repeats: true)
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("refreshEveryMinute"), userInfo: nil, repeats: true)
         
        
     }
@@ -62,12 +64,8 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
     }
     
     func refreshEveryMinute(){
-        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("sayHello"), userInfo: nil, repeats: true)
-        
-        func update()
-        {
-            determineTimeTillSas()
-        }
+        determineTimeTillSas()
+        displayTime()
         
     }
     
@@ -108,6 +106,17 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
     }
     
     
+    func displayTime(){
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day, .Hour, .Minute, .Second], fromDate: date)
+        let hour = components.hour;
+        let minute = components.minute;
+        
+        displayTimeLabel.text = String(hour) + " : " + String(minute)
+    }
+    
     
 //    http://makeapppie.com/tag/uipickerview-in-swift/
     
@@ -146,5 +155,7 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         pickerLabel!.textAlignment = .Center
         return pickerLabel
     }
+    
+    
     
 }
