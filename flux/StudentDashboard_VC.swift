@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import Foundation
 
 class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
@@ -16,11 +17,13 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
     
     var student: Student?
     
+    @IBOutlet weak var displayTimeLabel: UILabel!
     @IBOutlet weak var coursePicker: UIPickerView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tempConfirmChoiceLabel: UILabel!
-    @IBOutlet weak var timeUntilLabel: UILabel!
     @IBOutlet weak var checkInButton: UIButton!
+    @IBOutlet weak var remainingMinutesLabel: UITextField!
+    @IBOutlet weak var minutesUntilStartDescriptionLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +33,19 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         
          self.view.backgroundColor = UIColor(patternImage: UIImage(named: "studentDashboardBackground.jpeg")!)
         
-        determineTimeTillSas()
         
-        checkInButton.layer.cornerRadius = 10; // this value vary as per your desire
+        checkInButton.layer.cornerRadius = 15; // this value vary as per your desire
         checkInButton.clipsToBounds = true;
         
         //display student information
 //        nameLabel.text = "\(student!.firstName) \(student!.lastName)"
         
+        determineTimeTillSas()
+        displayTime()
         
+        var helloWorldTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("refreshEveryMinute"), userInfo: nil, repeats: true)
+        
+       
     }
     
     //Mark: IBActions
@@ -56,6 +63,11 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
+    func refreshEveryMinute(){
+        determineTimeTillSas()
+        displayTime()
+        
+    }
     
     
     
@@ -70,25 +82,40 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
 //        let second = components.second;
         
         //change text color depending on how long you have until SAS starts
-        if minute <= 40 && hour == 9{
+        if minute <= 40 {
             let untilMinute = 40 - minute
             
             if untilMinute <= 5 {
-                timeUntilLabel.textColor = UIColor.redColor()
+                //red
+                remainingMinutesLabel.textColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
+
             }else{
-                timeUntilLabel.textColor = UIColor.greenColor()
+                //green
+                remainingMinutesLabel.textColor =  UIColor(red: (100/255.0), green: (221/255.0), blue: (23/255.0), alpha: 1.0)
             }
             
-            timeUntilLabel.text = String(untilMinute) + " minutes until start"
-
+            remainingMinutesLabel.text = String(untilMinute)
         }else{
-            timeUntilLabel.textColor = UIColor.redColor()
-            //If SAS has already started
-            timeUntilLabel.text = "In Progress"
+            //red
+            remainingMinutesLabel.textColor = UIColor(red: (229/255.0), green: (57/255.0), blue: (53/255.0), alpha: 1.0)
+
+            remainingMinutesLabel.text = ""
+            minutesUntilStartDescriptionLabel.hidden = true
         }
  
     }
     
+    
+    func displayTime(){
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day, .Hour, .Minute, .Second], fromDate: date)
+        let hour = components.hour;
+        let minute = components.minute;
+        
+        displayTimeLabel.text = String(hour) + " : " + String(minute)
+    }
     
     
 //    http://makeapppie.com/tag/uipickerview-in-swift/
@@ -128,5 +155,7 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         pickerLabel!.textAlignment = .Center
         return pickerLabel
     }
+    
+    
     
 }
