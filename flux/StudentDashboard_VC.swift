@@ -31,8 +31,9 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         coursePicker.dataSource = self
         coursePicker.delegate = self
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "studentDashboardBackground.jpeg")!)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "studentDashboardBackground.jpeg")!)
         
+       
         
         checkInButton.layer.cornerRadius = 15; // this value vary as per your desire
         checkInButton.clipsToBounds = true;
@@ -150,7 +151,7 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
 //            pickerLabel.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
         }
         let titleData = tempCourses[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "AppleSDGothicNeo-SemiBold", size: 26.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "AppleSDGothicNeo-thin", size: 26.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
         pickerLabel!.attributedText = myTitle
         pickerLabel!.textAlignment = .Center
         return pickerLabel
