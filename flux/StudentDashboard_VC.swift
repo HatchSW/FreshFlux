@@ -31,7 +31,7 @@ class StudentDashboard_VC: UIViewController,UIPickerViewDataSource,UIPickerViewD
         coursePicker.dataSource = self
         coursePicker.delegate = self
         
-         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "studentDashboardBackground.jpeg")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "studentDashboardBackground.jpeg")!)
         
         
         checkInButton.layer.cornerRadius = 15; // this value vary as per your desire
